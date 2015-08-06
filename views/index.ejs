@@ -1,11 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1>音乐API</h1>
+
+<p>本API仅供学习与研究目的，使用者承担一切责任。</p>
+
+<h2>API列表</h2>
+
+<p>有些参数会使用查询字符串的形式传入（该类型参数全部以表格形式呈现），非查询字符串传参的参数直接参照给定的请求地址传入即可。</p>
+<article>
+	<h3>搜索</h3>
+
+	<p>请求方式：GET</p>
+
+	<p>请求地址：/musics/search</p>
+
+	<p>请求参数：</p>
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>参数名</td>
+			<td>参数说明</td>
+			<td>必须</td>
+			<td>默认值</td>
+		</tr>
+		<tr>
+			<td>s</td>
+			<td>搜索关键词</td>
+			<td>√</td>
+			<td>无</td>
+		</tr>
+		<tr>
+			<td>offset</td>
+			<td>记录偏移量</td>
+			<td>0</td>
+			<td>×</td>
+		</tr>
+		<tr>
+			<td>limit</td>
+			<td>返回记录数</td>
+			<td>20</td>
+			<td>×</td>
+		</tr>
+		<tr>
+			<td>type</td>
+			<td>类型</td>
+			<td>1</td>
+			<td>×</td>
+		</tr>
+	</table>
+	<p><strong>类型说明</strong></p>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>ID</td>
+			<td>说明</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>歌曲</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>专辑</td>
+		</tr>
+		<tr>
+			<td>100</td>
+			<td>歌手</td>
+		</tr>
+		<tr>
+			<td>1000</td>
+			<td>歌单</td>
+		</tr>
+		<tr>
+			<td>1002</td>
+			<td>用户</td>
+		</tr>
+		<tr>
+			<td>1004</td>
+			<td>mv</td>
+		</tr>
+		<tr>
+			<td>1006</td>
+			<td>歌词</td>
+		</tr>
+		<tr>
+			<td>1009</td>
+			<td>主播电台</td>
+		</tr>
+	</table>
+	<p>示例URL: <a href="/musics/search?s=我&offset=0&limit=10" target="_blank">/musics/search?s=我&offset=0&limit=10</a></p>
+</article>
+<article>
+	<h3>获取歌曲</h3>
+
+	<p>请求方式：GET</p>
+
+	<p>请求地址：/musics/歌曲ID</p>
+	<p>示例URL: <a href="/musics/187374" target="_blank">/musics/187374</a></p>
+</article>
+<article>
+	<h3>获取歌手专辑</h3>
+	<p>请求方式：GET</p>
+	<p>请求地址：/artist/歌手ID/albums</p>
+	<p>示例URL: <a href="/musics/artist/22349/albums" target="_blank">/musics/artist/22349/albums</a></p>
+</article>
+<article>
+	<h3>获取专辑详情</h3>
+	<p>请求方式：GET</p>
+	<p>请求地址：/musics/albums/专辑ID</p>
+	<p>示例URL: <a href="/musics/albums/86180" target="_blank">/musics/albums/86180</a></p>
+</article>
+<article>
+	<h3>获取歌单</h3>
+	<p>请求方式：GET</p>
+	<p>请求地址：/musics/playlist/歌单ID</p>
+	<p>示例URL: <a href="/musics/playlist/7574799" target="_blank">/musics/playlist/7574799</a></p>
+</article>
+<article>
+	<h3>获取歌词</h3>
+	<p>请求方式：GET</p>
+	<p>请求地址：/musics/歌曲ID/lyric</p>
+	<p>示例URL: <a href="/musics/187374/lyric" target="_blank">/musics/187374/lyric</a></p>
+</article>
+<footer>
+	Power By Express 4.13.1
+</footer>
+</body>
 </html>
